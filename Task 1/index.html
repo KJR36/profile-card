@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Card | Kuddus Jr</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <article class="profile-card" data-testid="test-profile-card">
+    <header>
+      <h2 data-testid="test-user-name">Kuddus Jr</h2>
+    </header>
+
+    <figure>
+      <img
+        src="pics/profile pic.jpg"
+        alt="Profile photo of Kuddus Jr"
+        data-testid="test-user-avatar"
+      />
+    </figure>
+
+    <p data-testid="test-user-bio">
+      Passionate software engineer focused on AI, cloud computing, and sustainable technology solutions.
+    </p>
+
+    <p>
+      Current time: <span data-testid="test-user-time"></span>
+    </p>
+
+    <nav aria-label="Social Links" data-testid="test-user-social-links">
+      <ul>
+        <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-twitter">Twitter</a></li>
+        <li><a href="https://github.com/kjr36" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-github">GitHub</a></li>
+        <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-linkedin">LinkedIn</a></li>
+      </ul>
+    </nav>
+
+    <section data-testid="test-user-hobbies">
+      <h3>Hobbies</h3>
+      <ul>
+        <li>Coding</li>
+        <li>Reading tech blogs</li>
+        <li>Playing football</li>
+      </ul>
+    </section>
+
+    <section data-testid="test-user-dislikes">
+      <h3>Dislikes</h3>
+      <ul>
+        <li>Procrastination</li>
+        <li>Poor documentation</li>
+        <li>Unoptimized code</li>
+      </ul>
+    </section>
+  </article>
+
+  <script src="script.js"></script>
+</body>
+</html>
