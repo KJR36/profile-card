@@ -7,53 +7,65 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <article class="profile-card" data-testid="test-profile-card">
-    <header>
-      <h2 data-testid="test-user-name">Kuddus Jr</h2>
-    </header>
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-    <figure>
-      <img
-        src="pics/profile pic.jpg"
-        alt="Profile photo of Kuddus Jr"
-        data-testid="test-user-avatar"
-      />
-    </figure>
+  <main>
+    <article class="profile-card" data-testid="test-profile-card">
+      <header>
+        <h2 data-testid="test-user-name">Kuddus Jr</h2>
+      </header>
 
-    <p data-testid="test-user-bio">
-      Passionate software engineer focused on AI, cloud computing, and sustainable technology solutions.
-    </p>
+      <figure>
+        <img
+          src="pics/profile pic.jpg"
+          alt="Profile photo of Kuddus Jr"
+          data-testid="test-user-avatar"
+        />
+      </figure>
 
-    <p>
-      Current time: <span data-testid="test-user-time"></span>
-    </p>
+      <p data-testid="test-user-bio">
+        Passionate software engineer focused on AI, cloud computing, and sustainable technology solutions.
+      </p>
 
-    <nav aria-label="Social Links" data-testid="test-user-social-links">
-      <ul>
-        <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-twitter">Twitter</a></li>
-        <li><a href="https://github.com/kjr36" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-github">GitHub</a></li>
-        <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-linkedin">LinkedIn</a></li>
-      </ul>
-    </nav>
+      <p>
+        Current time: <span data-testid="test-user-time"></span>
+      </p>
 
-    <section data-testid="test-user-hobbies">
-      <h3>Hobbies</h3>
-      <ul>
-        <li>Coding</li>
-        <li>Reading tech blogs</li>
-        <li>Playing football</li>
-      </ul>
-    </section>
+      <nav aria-label="Social Links" data-testid="test-user-social-links">
+        <ul>
+          <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-twitter">Twitter</a></li>
+          <li><a href="https://github.com/kjr36" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-github">GitHub</a></li>
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-linkedin">LinkedIn</a></li>
+        </ul>
+      </nav>
 
-    <section data-testid="test-user-dislikes">
-      <h3>Dislikes</h3>
-      <ul>
-        <li>Procrastination</li>
-        <li>Poor documentation</li>
-        <li>Unoptimized code</li>
-      </ul>
-    </section>
-  </article>
+      <div class="info-sections">
+        <section data-testid="test-user-hobbies">
+          <h3>Hobbies</h3>
+          <ul>
+            <li>Coding</li>
+            <li>Reading tech blogs</li>
+            <li>Playing football</li>
+          </ul>
+        </section>
+
+        <section data-testid="test-user-dislikes">
+          <h3>Dislikes</h3>
+          <ul>
+            <li>Procrastination</li>
+            <li>Poor documentation</li>
+            <li>Unoptimized code</li>
+          </ul>
+        </section>
+      </div>
+    </article>
+  </main>
 
   <script src="script.js"></script>
 </body>
