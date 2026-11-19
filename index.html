@@ -1,72 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Profile Card | Kuddus Jr</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kuddus Jr | Full Stack Software Engineer</title>
+<meta name="description" content="Full stack software engineer in Buea, Cameroon. React, Node.js, PostgreSQL, Docker. Open to remote roles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EDEFFB;--surface:#fff;--ink:#151338;--muted:#5A5A80;--line:#D5D8EE;--accent:#4B3BFF;--hot:#E8365D;--on:#fff;
+--cbg:#0B0A1C;--cink:#DDE0FF;--ckey:#A79CFF;--cstr:#FFB86B;--cdim:#7A7AA6;
+--display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;--text:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C0B1E;--surface:#15142E;--ink:#ECEBFF;--muted:#9C9BC4;--line:#28274D;--accent:#9A8CFF;--hot:#FF6B8B;--on:#0C0B1E;--cbg:#060612;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0C0B1E;--surface:#15142E;--ink:#ECEBFF;--muted:#9C9BC4;--line:#28274D;--accent:#9A8CFF;--hot:#FF6B8B;--on:#0C0B1E;--cbg:#060612;color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 var(--text);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+a{color:inherit}button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+#bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--hot));transform-origin:0 50%;transform:scaleX(0);z-index:31}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px;gap:16px}
+.logo{font:800 18px var(--display);text-decoration:none}
+nav{display:flex;gap:6px;font-size:14px;margin-left:auto}
+nav a{text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:6px}
+nav a:hover,nav a.on{color:var(--ink);background:var(--surface)}
+.tool{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:6px 12px;font-size:13px}
+.tool:hover{border-color:var(--accent)}
+kbd{font:400 12px var(--mono);color:var(--muted);margin-left:6px}
+.hero{position:relative;overflow:hidden;min-height:min(88svh,820px);display:flex;align-items:center;border-bottom:1px solid var(--line)}
+#bg{position:absolute;inset:0;width:100%;height:100%}
+.hero .wrap{position:relative;width:100%;padding-top:56px;padding-bottom:56px}
+.meta{display:flex;flex-wrap:wrap;gap:10px 20px;font-size:14px;color:var(--muted);margin-bottom:12px}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#2FB26B;margin-right:8px}
+h1{font:700 clamp(52px,14.5vw,168px)/.92 var(--display);letter-spacing:-.045em;margin:0 0 24px;white-space:nowrap;user-select:none}
+.ch{display:inline-block;font-weight:700;transition:font-weight .25s}
+.sp{display:inline-block;width:.22em}
+.lead{font-size:clamp(17px,2.2vw,21px);max-width:44ch;margin:0 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 20px;border-radius:8px;font-weight:500;text-decoration:none;border:1px solid var(--ink);background:transparent;font-size:15px}
+.btn.p{background:var(--accent);border-color:var(--accent);color:var(--on)}
+section.s{padding:72px 0;border-bottom:1px solid var(--line)}
+h2{font:700 clamp(28px,4vw,40px)/1.1 var(--display);letter-spacing:-.025em;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 32px;max-width:60ch}
+.term{background:var(--cbg);color:var(--cink);border-radius:14px;font:400 13.5px/1.7 var(--mono);overflow:hidden;box-shadow:0 24px 50px -24px rgba(21,19,56,.55)}
+.tabs{display:flex;flex-wrap:wrap;gap:4px;padding:10px;border-bottom:1px solid rgba(255,255,255,.08)}
+.tabs button{background:none;border:0;color:var(--cdim);padding:5px 12px;border-radius:6px;font:inherit}
+.tabs button[aria-selected="true"]{background:rgba(255,255,255,.1);color:var(--cink)}
+.tabs .go{margin-left:auto;border:1px solid var(--ckey);color:var(--ckey)}
+.term pre{margin:0;padding:18px;min-height:360px;overflow-x:auto}
+.k{color:var(--ckey)}.s2{color:var(--cstr)}.d{color:var(--cdim)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 14px;font:400 13px var(--mono)}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on)}
+.filters{margin-bottom:20px}
+.proj{--mx:50%;--my:50%;position:relative;padding:22px 20px;margin:0 -20px;border-top:1px solid var(--line);border-radius:12px;background:radial-gradient(360px circle at var(--mx) var(--my),color-mix(in srgb,var(--accent) 13%,transparent),transparent 70%);transition:opacity .3s}
+.proj.dim,.mini.dim{opacity:.22}
+.ph{display:grid;grid-template-columns:200px 1fr auto;gap:8px 28px;align-items:start}
+.proj h3,.job h3{font:700 21px/1.25 var(--display);margin:0}
+.tg{font:400 12.5px var(--mono);color:var(--muted);margin-top:4px}
+.proj p{margin:0;max-width:60ch}
+.tog{background:none;border:1px solid var(--line);border-radius:8px;width:34px;height:34px;font-size:18px;line-height:1}
+.tog:hover{border-color:var(--accent)}
+.more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.more>div{overflow:hidden}
+.proj.open .more{grid-template-rows:1fr}
+.more ul{margin:14px 0 6px 228px;padding-left:18px;color:var(--muted)}
+.more .lk{margin-left:228px;font-size:14px}.minis{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:20px}.mini{--mx:50%;--my:50%;display:block;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:radial-gradient(260px circle at var(--mx) var(--my),color-mix(in srgb,var(--accent) 14%,transparent),transparent 70%),var(--surface);transition:opacity .3s,border-color .2s}.mini:hover{border-color:var(--accent)}.mini b{font:700 17px var(--display);display:block}.mini span{display:block;color:var(--muted);font-size:14px;margin:4px 0 8px}.mini i{font:normal 400 12.5px var(--mono);color:var(--muted)}.mh{font:700 20px var(--display);margin:40px 0 0}
+.job{display:grid;grid-template-columns:200px 1fr;gap:8px 28px}
+.job ul{margin:0;padding-left:18px}.job li{margin-bottom:8px;max-width:62ch}
+.when{font:400 13px var(--mono);color:var(--muted)}
+.grp{margin-bottom:26px}.grp h3{font:700 17px var(--display);margin:0 0 10px}
+.edu{display:grid;gap:18px}.edu div{display:grid;grid-template-columns:200px 1fr;gap:4px 28px}.edu b{font-weight:500}
+.cta{font:800 clamp(24px,5.2vw,56px)/1.1 var(--display);letter-spacing:-.03em;word-break:break-word;margin:0 0 24px}
+.cta a{text-decoration-thickness:3px;text-underline-offset:7px;text-decoration-color:var(--hot)}
+form{display:grid;gap:12px;max-width:520px;margin-top:28px}
+input,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:11px 14px;width:100%}
+input:focus,textarea:focus{border-color:var(--accent);outline:0;box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent)}
+footer{padding:28px 0 48px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+dialog{border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);padding:0;width:min(560px,92vw);margin-top:14vh;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+dialog::backdrop{background:rgba(8,7,26,.55);backdrop-filter:blur(3px)}
+#q{border:0;border-bottom:1px solid var(--line);border-radius:0;padding:16px 18px;font-size:16px}
+#q:focus{box-shadow:none}
+#list{list-style:none;margin:0;padding:8px;max-height:46vh;overflow:auto}
+#list li{padding:9px 12px;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;gap:12px;font-size:15px}
+#list li[aria-selected="true"]{background:var(--accent);color:var(--on)}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:10px;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:40;max-width:90vw}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media (max-width:760px){nav{display:none}header .wrap{justify-content:space-between}.ph,.job,.edu div{grid-template-columns:1fr}.tog{justify-self:start}.more ul{margin-left:0}.more .lk{margin-left:0}.proj{margin:0 -12px;padding:20px 12px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
 </head>
 <body>
-  <nav class="main-nav">
-    <ul>
-      <li><a href="index.html" aria-current="page">Home</a></li>
-      <li><a href="about.html">About Me</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+<div id="bar"></div>
+<header><div class="wrap"><a class="logo" href="#top">KJ.</a>
+<nav aria-label="Primary"><a href="#playground">API</a><a href="#work">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
+<div style="display:flex;gap:8px"><button class="tool" id="openPal" type="button">Commands<kbd id="hint">Ctrl K</kbd></button><button class="tool" id="theme" type="button" aria-label="Toggle light and dark theme">Theme</button></div></div></header>
 
-  <main>
-    <article class="profile-card" data-testid="test-profile-card">
-      <header>
-        <h2 data-testid="test-user-name">Kuddus Jr</h2>
-      </header>
+<main>
+<div class="hero" id="top"><canvas id="bg" aria-hidden="true"></canvas>
+<div class="wrap">
+  <div class="meta"><span><span class="dot" aria-hidden="true"></span>Open to remote roles, full-time or part-time</span><span>Buea, Cameroon · <span id="clock"></span></span></div>
+  <h1 id="name" aria-label="Kuddus Jr">Kuddus Jr</h1>
+  <p class="lead">Full stack software engineer. I build REST APIs in Node.js and the React interfaces on top of them, and I care about documented, fast code.</p>
+  <div class="btns"><a class="btn p" href="#work">See my projects</a><a class="btn" href="#contact">Get in touch</a></div>
+</div></div>
 
-      <figure>
-        <img
-          src="pics/profile pic.jpg"
-          alt="Profile photo of Kuddus Jr"
-          data-testid="test-user-avatar"
-        />
-      </figure>
+<section class="s" id="playground"><div class="wrap">
+  <h2>Query my profile</h2>
+  <p class="sub">A small API playground. Pick an endpoint and send the request.</p>
+  <div class="term">
+    <div class="tabs" role="tablist" aria-label="Endpoints"></div>
+    <pre id="out" aria-live="polite"></pre>
+  </div>
+</div></section>
 
-      <p data-testid="test-user-bio">
-        Passionate software engineer focused on AI, cloud computing, and sustainable technology solutions.
-      </p>
+<section class="s" id="work"><div class="wrap">
+  <h2>Projects</h2>
+  <p class="sub">Filter by technology, or open a project to see what it covers. Source is on <a href="https://github.com/KJR36">GitHub</a>.</p>
+  <div class="chips filters" id="filters" role="group" aria-label="Filter projects by technology"></div>
+  <div id="projects">
+   <article class="proj" data-t="React.js,Vue,Twig,JavaScript"><div class="ph"><div><h3>Ticketing app</h3><div class="tg">React · Vue · Twig</div></div><p>One ticketing interface built three ways, to compare component architecture, state and templating.</p><button class="tog" type="button" aria-expanded="false" aria-label="Show details for Ticketing app">+</button></div>
+    <div class="more"><div><ul><li>Component-based interfaces in React and Vue</li><li>Application state management</li><li>Server-side templating with Twig</li></ul><div class="lk"><a href="https://github.com/KJR36/ticketing-app-React">React</a> · <a href="https://github.com/KJR36/ticketing-app-vue">Vue</a> · <a href="https://github.com/KJR36/ticketing-app-twig">Twig</a> · <a href="https://github.com/KJR36/ticketing-app">All three</a></div></div></div></article>
+   <article class="proj" data-t="Full stack,CRUD"><div class="ph"><div><h3>Gym management system</h3><div class="tg">Full stack · CRUD</div></div><p>Web app for memberships, class scheduling and the administrative workflows around them.</p><button class="tog" type="button" aria-expanded="false" aria-label="Show details for Gym management system">+</button></div>
+    <div class="more"><div><ul><li>Membership and schedule management</li><li>Admin workflows for operational records</li><li>Full create, read, update, delete functionality</li></ul><div class="lk"><a href="https://github.com/KJR36/Gym_mangement_system">View on GitHub</a></div></div></div></article>
+   <article class="proj" data-t="PHP,MySQL,Full stack"><div class="ph"><div><h3>College social network</h3><div class="tg">PHP · MySQL</div></div><p>A university social platform for student interaction, networking and content.</p><button class="tog" type="button" aria-expanded="false" aria-label="Show details for College social network">+</button></div>
+    <div class="more"><div><ul><li>Relational database design</li><li>User networking and content management</li><li>Data handling across the application</li></ul><div class="lk"><a href="https://github.com/KJR36/college-social-network-project">View on GitHub</a></div></div></div></article>
+   <article class="proj" data-t="JavaScript,CSS3"><div class="ph"><div><h3>KJRFlix</h3><div class="tg">JavaScript · CSS</div></div><p>A Netflix-inspired streaming interface with responsive layouts and carousels.</p><button class="tog" type="button" aria-expanded="false" aria-label="Show details for KJRFlix">+</button></div>
+    <div class="more"><div><ul><li>Responsive layouts across screen sizes</li><li>Dynamic data presentation</li><li>Interactive content carousels</li></ul><div class="lk"><a href="https://github.com/KJR36/kjrflix">View on GitHub</a></div></div></div></article>
+   <article class="proj" data-t="JavaScript,CSS3,HTML5"><div class="ph"><div><h3>Fintech landing page</h3><div class="tg">HTML · CSS · JavaScript</div></div><p>A responsive interface for a financial technology concept, built with accessibility in mind.</p><button class="tog" type="button" aria-expanded="false" aria-label="Show details for Fintech landing page">+</button></div>
+    <div class="more"><div><ul><li>Responsive presentation</li><li>Accessibility-focused interface design</li></ul><div class="lk"><a href="https://github.com/KJR36/Fintech-Landing-Page">View on GitHub</a></div></div></div></article>
+   <h3 class="mh">More on GitHub</h3>
+   <div class="minis">
+    <a class="mini" data-t="HTML5,CSS3" href="https://github.com/KJR36/profile-card"><b>Profile card</b><span>A responsive profile card design.</span><i>HTML · CSS</i></a>
+    <a class="mini" data-t="JavaScript" href="https://github.com/KJR36/Random-Color-Generator"><b>Random colour generator</b><span>A small app that generates random colours.</span><i>JavaScript</i></a>
+    <a class="mini" data-t="JavaScript,CSS3" href="https://github.com/KJR36/Accordian-form"><b>Accordion form</b><span>A form with expandable sections, built with DOM manipulation.</span><i>JavaScript · CSS</i></a>
+    <a class="mini" data-t="Java" href="https://github.com/KJR36/simple-calculator"><b>Simple calculator</b><span>A basic calculator written in Java.</span><i>Java</i></a>
+   </div>
+  </div>
+</div></section>
 
-      <p>
-        Current time: <span data-testid="test-user-time"></span>
-      </p>
+<section class="s" id="experience"><div class="wrap">
+  <h2>Experience</h2>
+  <p class="sub">One remote internship so far, and I’m looking for the next team.</p>
+  <div class="job"><div><h3>Full Stack Support Engineer</h3><div class="when">HNG Internship (HNG 13)<br>Remote, Nov 2025 – Jan 2026</div></div>
+   <ul><li>Built and optimized RESTful APIs in Node.js that connected backend services to React.js frontends.</li><li>Managed branching and merge conflicts in Git and reviewed teammates’ code on GitHub.</li><li>Worked with a remote, cross-functional team on shared deliverables.</li></ul></div>
+  <div class="edu" style="margin-top:56px"><h2 style="margin:0">Education</h2>
+   <div><span class="when">Oct 2024 – present</span><span><b>M.Tech, Software Engineering</b><br>College of Technology, University of Buea. Coursework complete, final defence pending.</span></div>
+   <div><span class="when">Sep 2023 – Aug 2024</span><span><b>B.Tech, Software Engineering</b><br>Landmark Metropolitan University. Second Class Upper Division, CGPA 3.31.</span></div>
+   <div><span class="when">Sep 2021 – Aug 2023</span><span><b>Higher National Diploma, Software Engineering</b><br>College of Technology.</span></div></div>
+</div></section>
 
-      <nav aria-label="Social Links" data-testid="test-user-social-links">
-        <ul>
-          <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-twitter">Twitter</a></li>
-          <li><a href="https://github.com/kjr36" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-github">GitHub</a></li>
-          <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" data-testid="test-user-social-linkedin">LinkedIn</a></li>
-        </ul>
-      </nav>
+<section class="s" id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <p class="sub">Select a skill to see which projects use it.</p>
+  <div class="grp"><h3>Frontend</h3><div class="chips" data-g><button class="chip" type="button" data-s="React.js">React.js</button><button class="chip" type="button" data-s="JavaScript">JavaScript</button><button class="chip" type="button" data-s="HTML5">HTML5</button><button class="chip" type="button" data-s="CSS3">CSS3</button><button class="chip" type="button" data-s="Tailwind CSS">Tailwind CSS</button><button class="chip" type="button" data-s="Vue">Vue</button><button class="chip" type="button" data-s="Twig">Twig</button></div></div>
+  <div class="grp"><h3>Backend and data</h3><div class="chips"><button class="chip" type="button" data-s="Node.js" data-x="1">Node.js</button><button class="chip" type="button" data-s="Express" data-x="1">Express</button><button class="chip" type="button" data-s="Django">Django</button><button class="chip" type="button" data-s="FastAPI">FastAPI</button><button class="chip" type="button" data-s="PHP">PHP</button><button class="chip" type="button" data-s="Java">Java</button><button class="chip" type="button" data-s="PostgreSQL">PostgreSQL</button><button class="chip" type="button" data-s="MySQL">MySQL</button><button class="chip" type="button" data-s="MongoDB">MongoDB</button><button class="chip" type="button" data-s="Firebase">Firebase</button></div></div>
+  <div class="grp"><h3>Tooling and infrastructure</h3><div class="chips"><button class="chip" type="button" data-s="Git" data-x="1">Git</button><button class="chip" type="button" data-s="Docker">Docker</button><button class="chip" type="button" data-s="Linux">Linux</button><button class="chip" type="button" data-s="CI/CD">CI/CD</button><button class="chip" type="button" data-s="Postman">Postman</button><button class="chip" type="button" data-s="Networking">LAN, Wi-Fi, routers</button></div></div>
+</div></section>
 
-      <div class="info-sections">
-        <section data-testid="test-user-hobbies">
-          <h3>Hobbies</h3>
-          <ul>
-            <li>Coding</li>
-            <li>Reading tech blogs</li>
-            <li>Playing football</li>
-          </ul>
-        </section>
+<section class="s" id="contact" style="border-bottom:0"><div class="wrap">
+  <h2>Contact</h2>
+  <p class="sub">Hiring for a junior or mid-level full stack role, or a part-time contract? I’d like to hear from you.</p>
+  <p class="cta"><a href="mailto:tanyikuddus36@gmail.com">tanyikuddus36@gmail.com</a></p>
+  <div class="btns"><button class="btn" type="button" id="copy">Copy email</button><a class="btn" href="https://github.com/KJR36">GitHub</a></div>
+  <form id="mail"><input id="nm" placeholder="Your name" aria-label="Your name" required><textarea id="msg" rows="4" placeholder="Your message" aria-label="Your message" required></textarea><button class="btn p" type="submit">Open in my email app</button></form>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 Tanyi Eyong Orock Kuddus Jr</span><span>Plain HTML, CSS and JavaScript. Try the command palette.</span></div></footer>
 
-        <section data-testid="test-user-dislikes">
-          <h3>Dislikes</h3>
-          <ul>
-            <li>Procrastination</li>
-            <li>Poor documentation</li>
-            <li>Unoptimized code</li>
-          </ul>
-        </section>
-      </div>
-    </article>
-  </main>
+<dialog id="pal" aria-label="Command palette"><input id="q" placeholder="Type a command" aria-label="Search commands" autocomplete="off"><ul id="list" role="listbox"></ul></dialog>
+<div id="toast" role="status"></div>
 
-  <script src="script.js"></script>
+<script>
+(function(){
+var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var root=document.documentElement,calm=matchMedia('(prefers-reduced-motion: reduce)').matches,EMAIL='tanyikuddus36@gmail.com';
+function toast(t){var e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove('on')},2400)}
+function go(id){var e=document.getElementById(id);if(e)e.scrollIntoView({behavior:calm?'auto':'smooth'})}
+/* theme */
+try{var st=localStorage.getItem('theme');if(st)root.dataset.theme=st}catch(e){}
+function dark(){var t=root.dataset.theme;return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+function toggleTheme(){root.dataset.theme=dark()?'light':'dark';try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}paint()}
+$('#theme').onclick=toggleTheme;
+if(/Mac|iPhone|iPad/.test(navigator.platform))$('#hint').textContent='⌘K';
+/* clock */
+var fm=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'Africa/Douala'});
+function tick(){$('#clock').textContent=fm.format(new Date())+' local time'}tick();setInterval(tick,20000);
+/* progress + spy */
+var bar=$('#bar');addEventListener('scroll',function(){var h=root.scrollHeight-root.clientHeight;bar.style.transform='scaleX('+(h>0?root.scrollTop/h:0)+')'},{passive:true});
+var links=$$('nav a');var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)links.forEach(function(a){a.classList.toggle('on',a.hash==='#'+e.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});
+$$('main section').forEach(function(s){io.observe(s)});
+/* hero canvas */
+var cv=$('#bg'),cx=cv.getContext('2d'),hero=$('.hero'),W=0,H=0,pts=[],m={x:-999,y:-999},col='#4B3BFF',hot='#E8365D',raf;
+function paint(){var s=getComputedStyle(root);col=s.getPropertyValue('--accent').trim();hot=s.getPropertyValue('--hot').trim();if(calm)draw()}
+function size(){var r=hero.getBoundingClientRect(),d=window.devicePixelRatio||1;W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);var n=Math.min(80,Math.round(W*H/15000));pts=[];for(var i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4});if(calm)draw()}
+function draw(){cx.clearRect(0,0,W,H);var i,j,a,b,d,near;
+ for(i=0;i<pts.length;i++){a=pts[i];if(!calm){a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;d=Math.hypot(a.x-m.x,a.y-m.y);if(d<130&&d>.5){a.x+=(a.x-m.x)/d*1.6;a.y+=(a.y-m.y)/d*1.6}}}
+ cx.lineWidth=1;cx.strokeStyle=col;
+ for(i=0;i<pts.length;i++){a=pts[i];for(j=i+1;j<pts.length;j++){b=pts[j];d=Math.hypot(a.x-b.x,a.y-b.y);if(d<140){cx.globalAlpha=(1-d/140)*.45;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}
+  near=Math.hypot(a.x-m.x,a.y-m.y)<170;cx.globalAlpha=near?1:.55;cx.fillStyle=near?hot:col;cx.beginPath();cx.arc(a.x,a.y,near?3.2:2,0,6.3);cx.fill()}
+ cx.globalAlpha=1}
+function loop(){draw();raf=requestAnimationFrame(loop)}
+function start(){cancelAnimationFrame(raf);if(!calm&&!document.hidden)loop()}
+document.addEventListener('visibilitychange',start);
+new ResizeObserver(size).observe(hero);paint();size();start();
+/* reactive name */
+var nm=$('#name'),txt=nm.textContent,chars=[];nm.innerHTML='';
+txt.split('').forEach(function(c){var s=document.createElement('span');s.setAttribute('aria-hidden','true');if(c===' '){s.className='sp'}else{s.className='ch';s.textContent=c;chars.push(s)}nm.appendChild(s)});
+function weights(px,py){chars.forEach(function(c){var r=c.getBoundingClientRect(),d=Math.hypot(px-(r.left+r.width/2),py-(r.top+r.height/2));c.style.fontWeight=Math.round(200+600*Math.exp(-d*d/(2*150*150)))})}
+function rest(){chars.forEach(function(c){c.style.fontWeight=700})}
+var real=false;
+hero.addEventListener('pointermove',function(e){real=true;var r=hero.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top;weights(e.clientX,e.clientY)});
+hero.addEventListener('pointerleave',function(){m.x=m.y=-999;rest()});
+if(!calm){var t0=null,nr=nm.getBoundingClientRect();(function sweep(t){if(real)return;t0=t0||t;var p=(t-t0)/1500;if(p>=1){rest();return}var r=nm.getBoundingClientRect();weights(r.left-120+(r.width+240)*p,r.top+r.height/2);requestAnimationFrame(sweep)})(performance.now())}
+/* api playground */
+var API={'/profile':{name:'Kuddus Jr',role:'Full Stack Software Engineer',location:'Buea, Cameroon',languages:['English','French'],available:true,workType:['remote','full-time','part-time']},
+'/stack':{frontend:['React.js','JavaScript (ES6+)','HTML5','CSS3','Tailwind CSS'],backend:['Node.js','Express','Django','FastAPI'],databases:['PostgreSQL','MySQL','MongoDB','Firebase'],tooling:['Git','GitHub','Docker','Linux','CI/CD','Postman']},
+'/experience':[{company:'HNG Internship (HNG 13)',role:'Full Stack Support Engineer',period:'Nov 2025 – Jan 2026',mode:'remote',did:['Built and optimized REST APIs in Node.js','Connected backend services to React frontends','Reviewed code and managed merges on GitHub']}],
+'/education':[{degree:'M.Tech, Software Engineering',school:'University of Buea',status:'coursework complete, defence pending'},{degree:'B.Tech, Software Engineering',school:'Landmark Metropolitan University',result:'Second Class Upper, CGPA 3.31'},{degree:'HND, Software Engineering',school:'College of Technology'}]};
+var tab='/profile',tm,tabs=$('.tabs'),out=$('#out');
+Object.keys(API).forEach(function(k){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.textContent='GET '+k;b.dataset.k=k;b.onclick=function(){run(k)};tabs.appendChild(b)});
+var gb=document.createElement('button');gb.type='button';gb.className='go';gb.textContent='Send again';gb.onclick=function(){run(tab)};tabs.appendChild(gb);
+function esc(j){return j.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/("(?:\\.|[^"\\])*")(\s*:)?|\b(true|false|null)\b/g,function(x,s,c,b){return s?(c?'<span class="k">'+s+'</span>'+c:'<span class="s2">'+s+'</span>'):'<span class="k">'+x+'</span>'})}
+function run(k){tab=k;clearTimeout(tm);$$('.tabs [role=tab]').forEach(function(b){b.setAttribute('aria-selected',String(b.dataset.k===k))});
+ var L=['<span class="d">GET '+k+'  ·  200 OK</span>'].concat(esc(JSON.stringify(API[k],null,2)).split('\n'));
+ if(calm){out.innerHTML=L.join('\n');return}out.innerHTML='';var i=0;(function n(){if(i<L.length){out.innerHTML+=(i?'\n':'')+L[i++];tm=setTimeout(n,38)}})()}
+run('/profile');
+/* projects: filter, expand, spotlight */
+var cur=null,projs=$$('.proj,.mini'),fb=$('#filters'),tagset={};
+projs.forEach(function(p){p.dataset.t.split(',').forEach(function(t){tagset[t]=1})});
+['All'].concat(Object.keys(tagset).sort()).forEach(function(t){var b=document.createElement('button');b.type='button';b.className='chip';b.textContent=t;b.dataset.f=t;b.onclick=function(){setF(t==='All'?null:t)};fb.appendChild(b)});
+function setF(t){cur=(t===cur)?null:t;var n=0;projs.forEach(function(p){var ok=!cur||p.dataset.t.split(',').indexOf(cur)>-1;p.classList.toggle('dim',!ok);if(ok)n++});
+ $$('#filters .chip').forEach(function(b){b.setAttribute('aria-pressed',String((b.dataset.f==='All'&&!cur)||b.dataset.f===cur))});
+ $$('#skills .chip').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.s===cur))});return n}
+setF(null);cur=null;$$('#filters .chip')[0].setAttribute('aria-pressed','true');
+$$('#skills .chip').forEach(function(b){b.onclick=function(){var s=b.dataset.s,wasOn=cur===s,n=setF(s);if(wasOn)return;var any=projs.some(function(p){return p.dataset.t.split(',').indexOf(s)>-1});
+ if(any){go('work')}else{setF(null);b.setAttribute('aria-pressed','false');toast(b.dataset.x?s+' isn’t tagged on a project, but I used it at HNG. See Experience.':'No project is tagged '+s+' yet.')}}});
+projs.forEach(function(p){var t=$('.tog',p);if(t)t.onclick=function(){var o=p.classList.toggle('open');t.setAttribute('aria-expanded',String(o));t.textContent=o?'−':'+'};
+ p.addEventListener('pointermove',function(e){var r=p.getBoundingClientRect();p.style.setProperty('--mx',(e.clientX-r.left)+'px');p.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+/* contact */
+function copy(){try{navigator.clipboard.writeText(EMAIL).then(function(){toast('Email copied')},function(){toast(EMAIL)})}catch(e){toast(EMAIL)}}
+$('#copy').onclick=copy;
+$('#mail').addEventListener('submit',function(e){e.preventDefault();var n=$('#nm').value.trim(),b=$('#msg').value.trim();location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Hello from '+n)+'&body='+encodeURIComponent(b+'\n\n'+n)});
+/* command palette */
+var pal=$('#pal'),q=$('#q'),ul=$('#list'),sel=0,shown=[];
+var cmds=[['Go to API playground',function(){go('playground')}],['Go to Projects',function(){go('work')}],['Go to Experience',function(){go('experience')}],['Go to Skills',function(){go('skills')}],['Go to Contact',function(){go('contact')}]]
+ .concat(Object.keys(API).map(function(k){return['Run GET '+k,function(){go('playground');run(k)}]}))
+ .concat([['Toggle light and dark theme',toggleTheme],['Copy email address',copy],['Open GitHub',function(){window.open('https://github.com/KJR36','_blank','noopener')}],['Clear project filter',function(){setF(null);go('work')}]]);
+function list(){var v=q.value.toLowerCase();shown=cmds.filter(function(c){return c[0].toLowerCase().indexOf(v)>-1});sel=Math.min(sel,Math.max(shown.length-1,0));
+ ul.innerHTML='';shown.forEach(function(c,i){var li=document.createElement('li');li.setAttribute('role','option');li.setAttribute('aria-selected',String(i===sel));li.textContent=c[0];li.onclick=function(){exec(i)};ul.appendChild(li)});if(!shown.length)ul.innerHTML='<li>No matching command</li>'}
+function exec(i){var c=shown[i];if(!c)return;pal.close();c[1]()}
+function open(){q.value='';sel=0;list();pal.showModal();q.focus()}
+$('#openPal').onclick=open;
+addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();pal.open?pal.close():open()}});
+q.addEventListener('input',function(){sel=0;list()});
+q.addEventListener('keydown',function(e){if(e.key==='ArrowDown'){e.preventDefault();sel=Math.min(sel+1,shown.length-1);list()}else if(e.key==='ArrowUp'){e.preventDefault();sel=Math.max(sel-1,0);list()}else if(e.key==='Enter'){e.preventDefault();exec(sel)}});
+pal.addEventListener('click',function(e){if(e.target===pal)pal.close()});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',paint);
+})();
+</script>
 </body>
 </html>
